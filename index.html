@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--link rel="icon" href="../../favicon.ico"-->
-    <title>Starter Template for Bootstrap</title>
-    <!-- Bootstrap core CSS -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="styles/stylesheet.css" rel="stylesheet"> </head>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--OWN STYLESHEET-->
+	<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
 
+	<!--GOOGLE-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!--BOOTSTRAP-->
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+	<!--SCRIPTS-->
+	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!--MY SCRIPT-->
+    <script type="text/javascript" src="scripts/generate.js"></script>
+
+</head>
 <body>
     <div class="container main-container">
         <div class="btn-group btn-group-justified btn-top" role="group" aria-label="...">
@@ -34,20 +35,8 @@
                     <th>State</th>
                 </tr>
             </thead>
-            <tbody>
-                <!--for-schleife start-->
-                <tr>
-                    <td class="align-middle-table">
-                        <span>Lampe 1</span>
-                    </td>
-                    <td class="align-middle-table">
-                        <div class="btn-group on-off-button-group" role="onoffswitch">
-                            <button type="button" class="btn btn-default btn-switch">O</button>
-                            <button type="button" class="btn btn-primary btn-switch">I</button>
-                        </div>
-                    </td>
-                </tr>
-                <!--for-schleife ende-->
+            <tbody id="insert_here">
+                
             </tbody>
         </table>
     </div>
@@ -59,7 +48,5 @@
         window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
-
-</html>
