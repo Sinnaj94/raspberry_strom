@@ -40,8 +40,8 @@ td
     width: 70%;
 }
 
-.btn-switch{
-    width:35px;
+.dimmed-background{
+    background: gray;
 }
 
 .bottom-bar{
