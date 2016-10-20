@@ -43,3 +43,8 @@ td
 .btn-switch{
     width:35px;
 }
+
+.bottom-bar{
+    position:absolute;
+    bottom:10px;
+}

@@ -1,52 +1,61 @@
-<head>
-	<!--OWN STYLESHEET-->
-	<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<!--OWN STYLESHEET-->
+    	<link rel="stylesheet" type="text/css" href="styles/stylesheet.css">
 
-	<!--GOOGLE-->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    	<!--GOOGLE-->
+    	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<!--BOOTSTRAP-->
-	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    	<!--BOOTSTRAP-->
+    	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
 
-	<!--SCRIPTS-->
-	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    	<!--SCRIPTS-->
+    	<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    	<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!--MY SCRIPT-->
-    <script type="text/javascript" src="scripts/generate.js"></script>
+        <!--MY SCRIPT-->
+        <script type="text/javascript" src="scripts/generate.js"></script>
 
-</head>
-<body>
-    <div class="container main-container">
-        <div class="btn-group btn-group-justified btn-top" role="group" aria-label="...">
-            <div class="btn-group" role="topswitch">
-                <button type="button" class="btn btn-primary"><i class="material-icons">power</i></button>
+    </head>
+    <body>
+        <div class="container main-container">
+            <div class="btn-group btn-group-justified btn-top" role="group" aria-label="...">
+                <div class="btn-group" role="topswitch">
+                    <button type="button" class="btn btn-primary"><i class="material-icons">lightbulb_outline</i></button>
+                </div>
+                <div class="btn-group" role="topswitch">
+                    <button type="button" class="btn btn-default"><i class="material-icons">color_lens</i></button>
+                </div>
+                <div class="btn-group" role="topswitch">
+                    <button type="button" class="btn btn-default"><i class="material-icons">settings</i></button>
+                </div>
             </div>
-            <div class="btn-group" role="topswitch">
-                <button type="button" class="btn btn-default"><i class="material-icons">color_lens</i></button>
-            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="item-tab">Item</th>
+                        <th>State</th>
+                    </tr>
+                </thead>
+                <tbody id="insert_here">
+                    
+                </tbody>
+            </table>
         </div>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="item-tab">Item</th>
-                    <th>State</th>
-                </tr>
-            </thead>
-            <tbody id="insert_here">
-                
-            </tbody>
-        </table>
-    </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
-    <script>
-        window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-</body>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+        <script>
+            window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
