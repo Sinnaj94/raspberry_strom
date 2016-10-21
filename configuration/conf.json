@@ -1,0 +1,5 @@
+{
+    "name": ["PC", "Raspberry", "TV"],
+    "id": [45, 21, 12],
+    "state": [false,false,false]
+}
