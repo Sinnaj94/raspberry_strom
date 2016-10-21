@@ -1,21 +1,22 @@
+
+
 .btn-top {}
 
 body,
 html {
     height: 100%;
     overflow: hidden;
+
 }
 
 div.wrap {
     height: 100%;
 }
 
-body {
 
-}
 
 .main-container {
-    margin-top: 50px;
+
     width: 100%;
     height: 100%;
 }
@@ -51,7 +52,7 @@ td
     position:relative;
 }
 
-.material-icons.md-48 { font-size: 32px; }
+.material-icons.md-32 { font-size: 32px; }
 
 .my-navbar{
     background-color:white;
@@ -63,3 +64,18 @@ td
     height:100%;
 }
 
+.my-header{
+    margin-top:0;
+    margin-bottom:0;
+    background: darkslategrey;
+    color: white;
+    width:100%;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+}
+.description-text{
+    margin-top:2px;
+    margin-bottom:0px;
+    font-size:12px;
+}

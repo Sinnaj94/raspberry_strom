@@ -9,6 +9,7 @@
 
     <!--GOOGLE-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <!--BOOTSTRAP-->
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -20,23 +21,27 @@
 
     <!--MY SCRIPT-->
     <script type="text/javascript" src="scripts/generate.js"></script>
-
 </head>
 <body>
     <header>
-
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <nav class="nav nav-tabs navbar-fixed-top my-navbar">
-                    <li role="presentation" class="active"><a href="#pageone"><i class="material-icons">lightbulb_outline</i></a></li>
-                    <li role="presentation"><a href="#pagetwo"><i class="material-icons">color_lens</i></a></li>
-                    <li role="presentation"><a href="#pagethree"><i class="material-icons">settings</i></a></li>
+                    <li role="presentation" class="active"><a href="#socket_page"><i class="material-icons">lightbulb_outline</i></a></li>
+                    <li role="presentation"><a href="#led_page"><i class="material-icons">color_lens</i></a></li>
+                    <li role="presentation"><a href="#music_page"><i class="material-icons">library_music</i></a></li>
+                    <li role="presentation"><a href="#settings_page"><i class="material-icons">settings</i></a></li>
                 </nav>
             </div>
         </div>
     </header>
     <div class="main-container">
-        <div class="page" id="pageone">
+        <div class="page" id="socket_page">
+            <h3 class="my-header">
+
+                <i class="material-icons md-48">lightbulb_outline</i>
+                <p class="description-text">Remote Control</p>
+            </h3>
             <table class="table">
                 <thead>
                     <tr>
@@ -47,11 +52,47 @@
                 <tbody id="insert_here"></tbody>
             </table>
         </div>
-        <div class="page" id="pagetwo">
-            <h3>Hier kommt der Color Code rein</h3>
+        <div class="page" id="led_page">
+            <h3 class="my-header">
+
+                <i class="material-icons md-48">color_lens</i>
+                <p class="description-text">LED-Control</p>
+            </h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="item-tab">Value</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Slider_1</th>
+                        <th>Red</th> 
+                    </tr>
+                    <tr>
+                        <th>Slider_1</th>
+                        <th>Green</th> 
+                    </tr>
+                    <tr>
+                        <th>Slider_1</th>
+                        <th>Blue</th> 
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="page" id="pagethree">
-            <h3>Settings</h3>
+        <div class="page" id="settings_page">
+            <h3 class="my-header">
+
+                <i class="material-icons md-48">settings</i>
+                <p class="description-text">Settings</p>
+            </h3>
+        </div>
+        <div class="page" id="music_page">
+            <h3 class="my-header">
+                <i class="material-icons md-48">library_music</i>
+                <p class="description-text">Music</p>
+            </h3>
         </div>
 
     </div>
