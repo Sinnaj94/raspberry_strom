@@ -4,9 +4,23 @@ $(document).ready(function(){
 	configureDevices();
 	$( document ).on( 'click', '.my-navbar li', function ( e ) {
     $( this ).addClass( 'active' ).siblings().removeClass( 'active' );
+    $('#airplay-button').click(function(){
+    	switchAirplay();
+    });
 } );
 	
 });
+
+function switchAirplay(){
+	if($('#airplay-button').hasClass("music-btn-active")){
+		$('#airplay-button').removeClass("music-btn-active");
+		$('#airplay-enabled-tag').text('(disabled)');
+	}else{
+		$('#airplay-button').addClass("music-btn-active");
+		$('#airplay-enabled-tag').text('(enabled)');
+	}
+	
+}
 //ADDS A DEVICE WITH A CURRENT STATE
 function addDevice(name,id,state){
 	device_list.push({name,id,state});

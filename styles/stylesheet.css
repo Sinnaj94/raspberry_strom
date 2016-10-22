@@ -82,18 +82,24 @@ td
 .music-container{
     margin:10px;
 }
-.shuffle-container{
-
-    
+music-component{
+    margin:10px;
 }
 
-.shuffle-container *{
+.music-component *{
     vertical-align: middle!important
 }
-.shuffle-container > .btn{
+.music-component > .btn{
     width:100%;
     height:60px;
     border-radius:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.music-btn-active{
+    background-color: green;
+    color:white!important; 
 }
 
 

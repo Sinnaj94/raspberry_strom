@@ -94,13 +94,20 @@
                 <p class="description-text">Music</p>
             </h3>
             <div class="music-container">
-                <div class="shuffle-container">
+                <div class="music-component">
                     <button class="btn btn-secondary">
                         <i class="material-icons">shuffle</i>
                         <span>SHUFFLE</span>
                     </button>
                 </div>
-                <i class="material-icons">play_arrow</i>
+
+                <div class="music-component">
+                    <button class="btn btn-secondary music-btn-active" id="airplay-button">
+                        <i class="material-icons">airplay</i>
+                        <span>AIRPLAY </span><span id="airplay-enabled-tag">(enabled)</span>
+                    </button>
+                    
+                </div>
             </div>
         </div>
 
