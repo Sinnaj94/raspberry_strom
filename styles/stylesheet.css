@@ -79,3 +79,21 @@ td
     margin-bottom:0px;
     font-size:12px;
 }
+.music-container{
+    margin:10px;
+}
+.shuffle-container{
+
+    
+}
+
+.shuffle-container *{
+    vertical-align: middle!important
+}
+.shuffle-container > .btn{
+    width:100%;
+    height:60px;
+    border-radius:10px;
+}
+
+
