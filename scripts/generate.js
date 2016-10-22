@@ -1,4 +1,5 @@
 var device_list =[];
+
 $(document).ready(function(){
 	//Configure Devices
 	configureDevices();
@@ -32,7 +33,7 @@ function configureDevices(){
 function insertDevices(){
 	//Insert the right ID's
 	for(var i = 0; i < device_list.length; i++){
-		var to_insert = '<tr id="row_'+i+'"><td class="align-middle-table"><span id="item_' + i + '"></span></td><td class="align-middle-table"><div class="btn-group on-off-button-group" id="buttongroup_' + i + '" role="onoffswitch"><button type="button" class="btn btn-primary btn-with-icon btn-toggle" id="button_on_'+i+'"><i class="material-icons md-48 material-icons-animation" id="icon_button_'+i+'"></i></button></div></td></tr><!--for-schleife ende-->'
+		var to_insert = '<tr id="row_'+i+'"><td class="align-middle-table"><span id="item_' + i + '"></span></td><td class="align-middle-table"><div class="btn-group on-off-button-group" id="buttongroup_' + i + '" role="onoffswitch"><button type="button" class="btn btn-primary btn-with-icon btn-toggle" id="button_on_'+i+'"><i class="material-icons md-32 material-icons-animation" id="icon_button_'+i+'"></i></button></div></td></tr><!--for-schleife ende-->'
 		$('#insert_here').append(to_insert);
 		$('#item_' + i).text(device_list[i].name);
 		$('#button_on_'+i).on("click", {

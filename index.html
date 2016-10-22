@@ -39,7 +39,7 @@
         <div class="page" id="socket_page">
             <h3 class="my-header">
 
-                <i class="material-icons md-48">lightbulb_outline</i>
+                <i class="material-icons md-32">lightbulb_outline</i>
                 <p class="description-text">Remote Control</p>
             </h3>
             <table class="table">
@@ -55,7 +55,7 @@
         <div class="page" id="led_page">
             <h3 class="my-header">
 
-                <i class="material-icons md-48">color_lens</i>
+                <i class="material-icons md-32">color_lens</i>
                 <p class="description-text">LED-Control</p>
             </h3>
             <table class="table">
@@ -84,23 +84,59 @@
         <div class="page" id="settings_page">
             <h3 class="my-header">
 
-                <i class="material-icons md-48">settings</i>
+                <i class="material-icons md-32">settings</i>
                 <p class="description-text">Settings</p>
             </h3>
         </div>
         <div class="page" id="music_page">
             <h3 class="my-header">
-                <i class="material-icons md-48">library_music</i>
+                <i class="material-icons md-32">library_music</i>
                 <p class="description-text">Music</p>
             </h3>
+
             <div class="music-container">
                 <div class="music-component">
-                    <button class="btn btn-secondary">
-                        <i class="material-icons">shuffle</i>
-                        <span>SHUFFLE</span>
-                    </button>
-                </div>
+                    <div class="btn-group" role="group">
+                        <button class="btn btn-secondary" id="shuffle-button">
+                            <i class="material-icons">shuffle</i>
+                            <span>SHUFFLE</span>
+                        </button>
 
+                        <button class="btn btn-secondary">
+                            <i class="material-icons">shuffle</i>
+                            <span>SHUFFLE</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="current-information">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <div class="block-text">
+                                <p id="song_info">Gold On The Ceiling</p>
+                                <p id="more_info"><span id="artist_info">The Black Keys</span><span> - </span><span id="album_info">El Camino</span></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <img src="img/album_cover_example.jpg" id="album_cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="music-component">
+                    
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">skip_previous</i></btn>
+                        </div>
+                        <div class="col-xs-4">
+                            <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">play_arrow</i></btn>
+                        </div>
+                        <div class="col-xs-4">
+                            <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">skip_next</i></btn>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="music-component">
                     <button class="btn btn-secondary music-btn-active" id="airplay-button">
                         <i class="material-icons">airplay</i>
