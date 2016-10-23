@@ -81,14 +81,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="page" id="settings_page">
-            <h3 class="my-header">
-
-                <i class="material-icons md-32">settings</i>
-                <p class="description-text">Settings</p>
-            </h3>
-        </div>
-        <div class="page" id="music_page">
+                <div class="page" id="music_page">
             <h3 class="my-header">
                 <i class="material-icons md-32">library_music</i>
                 <p class="description-text">Music</p>
@@ -124,7 +117,26 @@
                 </div>
                 <div class="music-component">
                     
-                    <div class="row">
+                    <div class="btn-group btn-group-justified my-btn-group" role="group">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-secondary">
+                                <i class="material-icons">skip_previous</i>
+                            </button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-secondary">
+                                <i class="material-icons">play_arrow</i>
+                            </button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-secondary">
+                                <i class="material-icons">skip_next</i>
+                            </button>
+                        </div>
+                        
+
+                    </div>
+                    <!--<div class="row music_navigation_buttons">
                         <div class="col-xs-4">
                             <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">skip_previous</i></btn>
                         </div>
@@ -134,7 +146,7 @@
                         <div class="col-xs-4">
                             <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">skip_next</i></btn>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
                 <div class="music-component">
@@ -145,6 +157,14 @@
                     
                 </div>
             </div>
+        </div>
+
+        <div class="page" id="settings_page">
+            <h3 class="my-header">
+
+                <i class="material-icons md-32">settings</i>
+                <p class="description-text">Settings</p>
+            </h3>
         </div>
 
     </div>

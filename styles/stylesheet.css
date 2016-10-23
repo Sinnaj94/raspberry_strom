@@ -78,6 +78,10 @@ td
     padding-bottom:10px;
     text-align:center;
 }
+
+.btn-secondary{
+    background-color:lightgray;
+}
 .description-text{
     margin-top:2px;
     margin-bottom:0px;
@@ -111,10 +115,7 @@ td
 }
 
 .btn-media{
-    width:100%;
-    background:none;
-    border:none;
-    font-size:100px;
+    border-radius:50px;
 }
 
 #song_info{
@@ -158,4 +159,15 @@ td
 
 .my-col{
     padding:0;
+}
+
+.music_navigation_buttons{
+    width:300px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.my-btn-group{
+    height:60px;
 }
