@@ -1,5 +1,5 @@
 {
     "name": ["PC", "TV", "Gemütliche Lampe"],
-    "myid": [1, 2, 3],
+    "myid": [1, 2, 4],
     "state": [false,false,false]
 }
