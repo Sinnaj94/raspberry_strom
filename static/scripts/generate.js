@@ -24,9 +24,9 @@ function switchAirplay() {
     }
 }
 //ADDS A DEVICE WITH A CURRENT STATE
-function addDevice(name, id, state) {
+function addDevice(name, myid, state) {
     device_list.push({
-        name, id, state
+        name, myid, state
     });
     console.log(device_list);
 }
@@ -63,7 +63,7 @@ function readJSON() {
             //let's display a few items
             for (var i = 0; i < json.name.length; i++) {
                 console.log(json.name[i]);
-                addDevice(json.name[i], json.id[i], json.state[i]);
+                addDevice(json.name[i], json.myid[i], json.state[i]);
             }
             insertDevices();
         }
@@ -72,13 +72,15 @@ function readJSON() {
 
 function turnOff(event) {
     var id = event.data.current_id;
-    executePythonFunction("turnOff", event);
+    var myid = device_list[id].myid;
+    executePythonFunction(0, myid);
     setButtonIcon(id, false);
 }
 
 function turnOn(event) {
     var id = event.data.current_id;
-    executePythonFunction("turnOn", event);
+    var myid = device_list[id].myid;
+    executePythonFunction(1, myid);
     setButtonIcon(id, true);
 }
 
@@ -125,12 +127,24 @@ function switchOnOff(event) {
     switchState(id);
 }
 
-function executePythonFunction(functionName, args) {
+function executePythonFunction(state, lampID) {
+    var test = {};
+    test['state'] = state;
+    test['id'] = lampID;
+    jsonify = JSON.stringify(test);
+    console.log(jsonify);
     $.ajax({
-        url: "../static/scripts/python/test_script.py"
-        , success: function (response) {
+        url: '/foo',
+        data: JSON.stringify(test),
+        contentType: 'application/json;charset=UTF-8',
+        type: 'POST',
+        success: function(response){
             console.log(response);
+        },
+        error: function(error) {
+            
+            console.log(error);
         }
     });
-    console.log("EXECUTED PYTHON SCRIPT " + functionName + " WITH ARGS " + args);
+    console.log(state + " " + lampID);
 }

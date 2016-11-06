@@ -1,5 +1,5 @@
 {
-    "name": ["PC", "Raspberry", "TV"],
-    "id": [45, 21, 12],
+    "name": ["PC", "TV", "Gemütliche Lampe"],
+    "myid": [1, 2, 3],
     "state": [false,false,false]
 }
