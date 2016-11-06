@@ -127,7 +127,7 @@ function switchOnOff(event) {
 
 function executePythonFunction(functionName, args) {
     $.ajax({
-        url: "scripts/python/test_script.py"
+        url: "../static/scripts/python/test_script.py"
         , success: function (response) {
             console.log(response);
         }
