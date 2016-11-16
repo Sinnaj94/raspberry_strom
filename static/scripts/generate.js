@@ -1,4 +1,6 @@
 var device_list = [];
+
+//On Document Load
 $(document).ready(function () {
     //Configure Devices
     configureDevices();
@@ -8,11 +10,22 @@ $(document).ready(function () {
     $('#airplay-button').click(function () {
         switchAirplay();
     });
+    //Scroll to window hash
+    if(window.location.hash != '' && window.location.hash != undefined){
+        jQuery('a[href$='+ '"' + window.location.hash + '"' + ']').trigger('click');
+        jQuery(window.location.hash).get(0).scrollIntoView();
+    }
     $(window).resize(function () {
-        location.href = window.location.hash;
+        var _hash = window.location.hash;
+        if(_hash != '' && _hash != undefined){
+            jQuery(_hash).get(0).scrollIntoView();
+        } 
     });
 });
 
+
+
+//Switches the Airplay Button
 function switchAirplay() {
     if ($('#airplay-button').hasClass("music-btn-active")) {
         $('#airplay-button').removeClass("music-btn-active");
@@ -23,20 +36,21 @@ function switchAirplay() {
         $('#airplay-enabled-tag').text('(enabled)');
     }
 }
-//ADDS A DEVICE WITH A CURRENT STATE
+
+//Adds Device with a state, name and id
 function addDevice(name, myid, state) {
     device_list.push({
         name, myid, state
     });
-    console.log(device_list);
 }
 
+//Configures The DEVICES
 function configureDevices() {
     readJSON();
 }
 
+//Inserts the Devices into the HTML
 function insertDevices() {
-    //Insert the right ID's
     for (var i = 0; i < device_list.length; i++) {
         var to_insert = '<tr id="row_' + i + '"><td class="align-middle-table"><span id="item_' + i + '"></span></td><td class="align-middle-table"><div class="btn-group on-off-button-group" id="buttongroup_' + i + '" role="onoffswitch"><button type="button" class="btn btn-primary btn-with-icon btn-toggle" id="button_on_' + i + '"><i class="material-icons md-32 material-icons-animation" id="icon_button_' + i + '"></i></button></div></td></tr><!--for-schleife ende-->'
         $('#insert_here').append(to_insert);
@@ -44,25 +58,20 @@ function insertDevices() {
         $('#button_on_' + i).on("click", {
             current_id: i
         }, switchOnOff);
-        //Setting first button icon
         initButtonIcon(i, device_list[i].state);
     }
 }
 
+//Reads out the JSON & Adds the devices
 function readJSON() {
-    //start ajax request
+    //Using an AJAX Request
     $.ajax({
         url: "../static/configuration/conf.json"
-        , //force to handle it as text
+        ,
         dataType: "text"
         , success: function (data) {
-            //data downloaded so we call parseJSON function 
-            //and pass downloaded data
             var json = $.parseJSON(data);
-            //now json variable contains data in json format
-            //let's display a few items
             for (var i = 0; i < json.name.length; i++) {
-                console.log(json.name[i]);
                 addDevice(json.name[i], json.myid[i], json.state[i]);
             }
             insertDevices();
@@ -70,25 +79,13 @@ function readJSON() {
     });
 }
 
-function turnOff(event) {
-    var id = event.data.current_id;
-    var myid = device_list[id].myid;
-    executePythonFunction(0, myid);
-    setButtonIcon(id, false);
-}
 
-function turnOn(event) {
-    var id = event.data.current_id;
-    var myid = device_list[id].myid;
-    executePythonFunction(1, myid);
-    setButtonIcon(id, true);
-}
-
+//Sets the ButtonIcon
 function setButtonIcon(id, on) {
     animateButtonChange(id, on);
-    //$("#icon_button_"+id).text(text);
 }
 
+//Initializes the Icon
 function initButtonIcon(id, on) {
     var text;
     on ? text = "wb_sunny" : text = "brightness_3";
@@ -100,6 +97,7 @@ function initButtonIcon(id, on) {
     $(id_td).css('background-color', color);
 }
 
+//Animates the Button Change (Sun goes down, moon up or other way around)
 function animateButtonChange(id, on) {
     var distance = '15px';
     var id_name = "#icon_button_" + id;
@@ -117,22 +115,36 @@ function animateButtonChange(id, on) {
     , }, 150)
 }
 
-function switchState(id) {
+//Decides & Switches the current state
+function switchOnOff(event) {
+    var id = event.data.current_id;
+    device_list[id].state ? switchOff(event) : switchOn(event);
+    switchState(id);
     device_list[id].state = !device_list[id].state
 }
 
-function switchOnOff(event) {
+//Function for switching off
+function switchOff(event) {
     var id = event.data.current_id;
-    device_list[id].state ? turnOff(event) : turnOn(event);
-    switchState(id);
+    var myid = device_list[id].myid;
+    executePythonFunction(0, myid);
+    setButtonIcon(id, false);
 }
 
+//Function for switching on
+function switchOn(event) {
+    var id = event.data.current_id;
+    var myid = device_list[id].myid;
+    executePythonFunction(1, myid);
+    setButtonIcon(id, true);
+}
+
+//Executes the Python function using an ajax handler
 function executePythonFunction(state, lampID) {
     var test = {};
     test['state'] = state;
     test['id'] = lampID;
     jsonify = JSON.stringify(test);
-    console.log(jsonify);
     $.ajax({
         url: '/foo',
         data: JSON.stringify(test),
@@ -142,9 +154,7 @@ function executePythonFunction(state, lampID) {
             console.log(response);
         },
         error: function(error) {
-            
             console.log(error);
         }
     });
-    console.log(state + " " + lampID);
 }
