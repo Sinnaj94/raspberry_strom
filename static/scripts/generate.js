@@ -115,11 +115,11 @@ function animateButtonChange(id, on) {
     , }, 150)
 }
 
+
 //Decides & Switches the current state
 function switchOnOff(event) {
     var id = event.data.current_id;
     device_list[id].state ? switchOff(event) : switchOn(event);
-    switchState(id);
     device_list[id].state = !device_list[id].state
 }
 
