@@ -66,8 +66,7 @@ td
 .page{
     padding-top:50px;
     height:100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    
 }
 
 .my-header{
@@ -90,10 +89,9 @@ td
     font-size:12px;
 }
 
-.music-container{
-    margin:10px;
-    margin-left:0;
-    margin-right:0;
+.page-container{
+    overflow-x: hidden;
+    overflow-y: auto;
     height:100%;
 }
 .music-component{
@@ -174,11 +172,13 @@ td
     height:60px;
 }
 
+/*
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+    width: 0px;  
+    background: transparent;  
 }
 
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
+*/
