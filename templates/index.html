@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!--OWN STYLESHEET-->
     
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -96,20 +96,6 @@
             </h3>
 
             <div class="page-container">
-                <div class="music-component">
-                    <div class="btn-group" role="group">
-                        <button class="btn btn-secondary" id="shuffle-button">
-                            <i class="material-icons">shuffle</i>
-                            <span>SHUFFLE</span>
-                        </button>
-
-                        <button class="btn btn-secondary">
-                            <i class="material-icons">shuffle</i>
-                            <span>SHUFFLE</span>
-                        </button>
-                    </div>
-
-                </div>
                 <div class="current-information">
                     <div class="row">
                         <div class="col-xs-8">
@@ -123,37 +109,47 @@
                         </div>
                     </div>
                 </div>
-                <div class="music-component">
-
-                    <div class="btn-group btn-group-justified my-btn-group" role="group">
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-secondary">
-                                <i class="material-icons">skip_previous</i>
-                            </button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-secondary">
-                                <i class="material-icons">play_arrow</i>
-                            </button>
-                        </div>
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-secondary">
-                                <i class="material-icons">skip_next</i>
-                            </button>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="music-component">
+                            <div class="btn-group btn-group-justified" role="group">
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-secondary">
+                                        <i class="material-icons">skip_previous</i>
+                                    </button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-secondary">
+                                        <i class="material-icons">play_arrow</i>
+                                    </button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-secondary">
+                                        <i class="material-icons">skip_next</i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!--<div class="row music_navigation_buttons">
-                        <div class="col-xs-4">
-                            <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">skip_previous</i></btn>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="music-component">
+                            <div class="btn-group btn-group-justified" role="group">
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-secondary" id="shuffle-button">
+                                        <i class="material-icons">shuffle</i>
+                                        <span>SHUFFLE</span>
+                                    </button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-secondary">
+                                        <i class="material-icons">shuffle</i>
+                                        <span>SHUFFLE</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-xs-4">
-                            <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">play_arrow</i></btn>
-                        </div>
-                        <div class="col-xs-4">
-                            <btn class="btn btn-secondary btn-media"><i class="material-icons md-48">skip_next</i></btn>
-                        </div>
-                    </div>-->
-                </div>
+                    </div>
+                </div> 
                 <div class="music-component">
                     <button class="btn btn-secondary music-btn-active" id="airplay-button">
                         <i class="material-icons">airplay</i>
@@ -170,7 +166,7 @@
                 <p class="description-text">Settings</p>
             </h3>
             <div class="page-container">
-            Hier kommen später noch ein paar settings rein.
+                Hier kommen später noch ein paar settings rein.
             </div>
         </div>
 
