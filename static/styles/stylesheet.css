@@ -1,5 +1,3 @@
-
-
 .btn-top {}
 
 body,
@@ -78,6 +76,7 @@ td
     padding-top:10px;
     padding-bottom:10px;
     text-align:center;
+    display: none;
 }
 
 .btn-secondary{
@@ -171,6 +170,13 @@ td
 .my-btn-group{
     height:60px;
 }
+
+@media only screen and (max-width:599px){
+    .navbar-description-text {
+        display: none;
+    }
+}
+
 
 /*
 ::-webkit-scrollbar {
