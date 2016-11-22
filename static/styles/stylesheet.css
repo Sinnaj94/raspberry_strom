@@ -177,14 +177,7 @@ td
     }
 }
 
-
-/*
-::-webkit-scrollbar {
-    width: 0px;  
-    background: transparent;  
+.navbar-description-text {
+    position: relative;
+    vertical-align: super;
 }
-
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
-}
-*/
