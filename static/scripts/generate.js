@@ -158,3 +158,16 @@ function executePythonFunction(state, lampID) {
         }
     });
 }
+
+function changeColor(){
+    var r = getColor('#range_red');
+    var g = getColor('#range_green');
+    var b = getColor('#range_blue');
+    var newcolor = "rgb(" + r + "," + g + "," + b + ")";
+    $('#color_preview').css('background-color', newcolor);
+}
+
+function getColor(id){ 
+
+    return $(id).val();
+}

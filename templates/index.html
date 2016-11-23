@@ -97,19 +97,20 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th>Slider_1</th>
+                            <th><input type="range" id="range_red" value="128" max="255" oninput="changeColor()" onchange="changeColor()"></th>
                             <th>Red</th> 
                         </tr>
                         <tr>
-                            <th>Slider_1</th>
+                            <th><input type="range" id="range_green" value="128" max="255" oninput="changeColor()" onchange="changeColor()"></th>
                             <th>Green</th> 
                         </tr>
                         <tr>
-                            <th>Slider_1</th>
+                            <th><input type="range" id="range_blue" value="128" max="255" oninput="changeColor()" onchange="changeColor()"></th>
                             <th>Blue</th> 
                         </tr>
                     </tbody>
                 </table>
+                <div id="color_preview"></div>
             </div>
         </div>
         <div class="page" id="music_page">
