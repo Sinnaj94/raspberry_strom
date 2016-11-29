@@ -1,5 +1,20 @@
 {
-    "name": ["PC", "TV", "Gemütliche Lampe"],
-    "myid": [1, 2, 4],
-    "state": [false,false,false]
+    "plugs" : [
+    	{
+    		"name": "PC",
+    		"key" : 10110,
+    		"id": 1,
+    		"state": false
+    	},
+    	{
+    		"name": "TV",
+    		"id": 2,
+    		"state": false
+    	},
+    	{
+    		"name": "Lampe",
+    		"id": 4,
+    		"state": false
+    	}
+    ]
 }
