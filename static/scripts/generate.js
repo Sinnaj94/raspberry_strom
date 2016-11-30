@@ -2,8 +2,7 @@ var device_list = [];
 
 //On Document Load
 $(document).ready(function () {
-    //Configure Devices
-    configureDevices();
+    //Helper functions
     $(document).on('click', '.my-navbar li', function (e) {
         $(this).addClass('active').siblings().removeClass('active');
     });
@@ -37,64 +36,9 @@ function switchAirplay() {
     }
 }
 
-//Adds Device with a state, name and id
-function addDevice(name, myid, state) {
-    device_list.push({
-        name, myid, state
-    });
-}
-
-//Configures The DEVICES
-function configureDevices() {
-    readJSON();
-}
-
-//Inserts the Devices into the HTML
-function insertDevices() {
-    for (var i = 0; i < device_list.length; i++) {
-        var to_insert = '<tr id="row_' + i + '"><td class="align-middle-table"><span id="item_' + i + '"></span></td><td class="align-middle-table"><div class="btn-group on-off-button-group" id="buttongroup_' + i + '" role="onoffswitch"><button type="button" class="btn btn-primary btn-with-icon btn-toggle" id="button_on_' + i + '"><i class="material-icons md-32 material-icons-animation" id="icon_button_' + i + '"></i></button></div></td></tr><!--for-schleife ende-->'
-        $('#insert_here').append(to_insert);
-        $('#item_' + i).text(device_list[i].name);
-        $('#button_on_' + i).on("click", {
-            current_id: i
-        }, switchOnOff);
-        initButtonIcon(i, device_list[i].state);
-    }
-}
-
-//Reads out the JSON & Adds the devices
-function readJSON() {
-    //Using an AJAX Request
-    $.ajax({
-        url: "../static/configuration/conf.json"
-        ,
-        dataType: "text"
-        , success: function (data) {
-            var json = $.parseJSON(data);
-            for (var i = 0; i < json.name.length; i++) {
-                addDevice(json.name[i], json.myid[i], json.state[i]);
-            }
-            insertDevices();
-        }
-    });
-}
-
-
 //Sets the ButtonIcon
 function setButtonIcon(id, on) {
     animateButtonChange(id, on);
-}
-
-//Initializes the Icon
-function initButtonIcon(id, on) {
-    var text;
-    on ? text = "wb_sunny" : text = "brightness_3";
-    var id_name = "#icon_button_" + id;
-    $(id_name).text(text);
-    var id_td = "#row_" + id;
-    var color;
-    on ? color = 'white' : color = 'lightgray';
-    $(id_td).css('background-color', color);
 }
 
 //Animates the Button Change (Sun goes down, moon up or other way around)
@@ -118,10 +62,14 @@ function animateButtonChange(id, on) {
 
 //Decides & Switches the current state
 function switchOnOff(event) {
+    var self = this;
+    console.log($(this));
+    /*
     var id = event.data.current_id;
     device_list[id].state ? switchOff(event) : switchOn(event);
-    device_list[id].state = !device_list[id].state
+    device_list[id].state = !device_list[id].state*/
 }
+
 
 //Function for switching off
 function switchOff(event) {

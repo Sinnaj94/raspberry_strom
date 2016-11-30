@@ -6,11 +6,13 @@ def getJSON(file):
 		_return=json.load(myfile)
 	return _return
 
-def iterateObjects():
+def getPlugs():
 	jsontest = getJSON('static/configuration/conf.json')
+	_return = []
 	for plug in jsontest['plugs']:
-		print json.dumps(plug['name'])
-		print json.dumps(plug['state'])
-		print json.dumps(plug['id'])
+		_return.append(plug)
+	print _return
+	return _return
 
-iterateObjects();
+
+getPlugs();

@@ -4,17 +4,22 @@
     		"name": "PC",
     		"key" : 10110,
     		"id": 1,
-    		"state": false
+    		"state": false,
+            "myid": 101101
     	},
     	{
     		"name": "TV",
+            "key" : 10110,
     		"id": 2,
-    		"state": false
+    		"state": false,
+            "myid": 101102
     	},
     	{
     		"name": "Lampe",
+            "key" : 10110,
     		"id": 4,
-    		"state": false
+    		"state": false,
+            "myid": 101104
     	}
     ]
 }

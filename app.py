@@ -1,11 +1,13 @@
 from flask import Flask, request
 import subprocess
+import helpertools
 from flask import render_template
 app = Flask(__name__)
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    _plugs = helpertools.getPlugs()
+    return render_template('index.html',plugs = _plugs)
 
 @app.route('/foo', methods=['GET','POST'])
 def foo(x=None, y=None):
