@@ -9,7 +9,7 @@
         }, 
         {
             "myid": 101102, 
-            "state": true, 
+            "state": false, 
             "name": "TV", 
             "key": 10110, 
             "id": 2

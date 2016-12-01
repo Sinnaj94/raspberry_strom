@@ -15,7 +15,7 @@ def foo(x=None, y=None):
     myid = int(request.json['myid'])
     _state = helpertools.changeState(myid)
     _subprocess = helpertools.getSteckdoseFormatted(myid)
-    #subprocess.Popen(_subprocess, shell=True)
+    subprocess.Popen(_subprocess, shell=True)
     
     return json.dumps({'state':_state, 'subprocess':_subprocess})
     pass
