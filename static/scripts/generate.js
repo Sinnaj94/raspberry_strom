@@ -26,6 +26,7 @@ $(document).ready(function () {
 
 //Switches the Airplay Button
 function switchAirplay() {
+    //TODO: In css auslagern
     if ($('#airplay-button').hasClass("music-btn-active")) {
         $('#airplay-button').removeClass("music-btn-active");
         $('#airplay-enabled-tag').text('(disabled)');
@@ -35,74 +36,39 @@ function switchAirplay() {
         $('#airplay-enabled-tag').text('(enabled)');
     }
 }
-
-//Sets the ButtonIcon
-function setButtonIcon(id, on) {
-    animateButtonChange(id, on);
-}
-
-//Animates the Button Change (Sun goes down, moon up or other way around)
-function animateButtonChange(id, on) {
-    var distance = '15px';
-    var id_name = "#icon_button_" + id;
-    var row_name = '#row_' + id;
-    $(id_name).animate({
-        top: distance
-        , opacity: 0
-    , }, 150, function () {
-        initButtonIcon(id, on);
-        $(id_name).css('top', '-' + distance);
-    })
-    $(id_name).animate({
-        top: '0px'
-        , opacity: 1
-    , }, 150)
-}
-
-
 //Decides & Switches the current state
-function switchOnOff(event) {
-    var self = this;
-    console.log($(this));
-    /*
-    var id = event.data.current_id;
-    device_list[id].state ? switchOff(event) : switchOn(event);
-    device_list[id].state = !device_list[id].state*/
-}
-
-
-//Function for switching off
-function switchOff(event) {
-    var id = event.data.current_id;
-    var myid = device_list[id].myid;
-    executePythonFunction(0, myid);
-    setButtonIcon(id, false);
-}
-
-//Function for switching on
-function switchOn(event) {
-    var id = event.data.current_id;
-    var myid = device_list[id].myid;
-    executePythonFunction(1, myid);
-    setButtonIcon(id, true);
+function switchOnOff(e) {
+    var currentState = e.getAttribute('plugactive');
+    var myid = e.id;
+    executePythonFunction(myid);
 }
 
 //Executes the Python function using an ajax handler
-function executePythonFunction(state, lampID) {
-    var test = {};
-    test['state'] = state;
-    test['id'] = lampID;
-    jsonify = JSON.stringify(test);
+function executePythonFunction(myid) {
+    var  myjson = {};
+    myjson['myid'] = myid;
+    var currentElement = document.getElementById(myid);
+    $(currentElement).find('i').animate({
+        opacity: 0,
+        top:'9px'
+    },100,function(){
+        $(this).css('top','-9px');
+    });
+    currentElement.disabled = true;
     $.ajax({
         url: '/foo',
-        data: JSON.stringify(test),
+        data: JSON.stringify(myjson),
         contentType: 'application/json;charset=UTF-8',
         type: 'POST',
         success: function(response){
-            console.log(response);
+            currentElement.disabled = false;
+            currentElement.setAttribute('plugactive',JSON.parse(response)['state']);
+            $(currentElement).find('i').animate({
+                opacity: 1,
+                top: '0px'
+            },100)
         },
         error: function(error) {
-            console.log(error);
         }
     });
 }

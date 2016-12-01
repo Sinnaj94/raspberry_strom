@@ -9,6 +9,7 @@ html {
 
 
 
+
 div.wrap {
     height: 100%;
 }
@@ -186,4 +187,13 @@ td
     background-color: black;
     width: 100%;
     height: 200px;
+}
+
+
+.btn-switch[plugactive = "false"] > i.bright{
+    display: none;
+}
+
+.btn-switch[plugactive = "true"] > i.dark{
+    display: none;
 }

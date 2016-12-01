@@ -1,6 +1,7 @@
 from flask import Flask, request
 import subprocess
 import helpertools
+import json
 from flask import render_template
 app = Flask(__name__)
 
@@ -11,12 +12,11 @@ def main():
 
 @app.route('/foo', methods=['GET','POST'])
 def foo(x=None, y=None):
-    a = request.json['id']
-    b = request.json['state']
+    myid = int(request.json['myid'])
     #TODO: rework
-    subprocess.Popen("python steckdose.py "+ str(a) + " " + str(b), shell=True)
-    msg = "SWITCH WAS SUCCESFUL (ID: " + str(a) + " STATE:" + str(b) + ")"
-    return msg
+    #subprocess.Popen("python steckdose.py "+ str(a) + " " + str(b), shell=True)
+    _state = helpertools.changeState(myid)
+    return json.dumps({'state':_state})
     pass
 
 if __name__ == "__main__":

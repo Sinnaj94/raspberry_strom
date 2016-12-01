@@ -82,13 +82,12 @@
                             <tr>
                                 <td class="align-middle-table">{{ plug['name'] }}</td>
                                 <td class="align-middle-table">
-                                    <button type="button" class="btn btn-primary btn-with-icon btn-toggle" id="{{plug['myid']}}" plugactive="{{plug['state']}}" onClick="switchOnOff(event)">
-                                        <i class="material-icons md-32 material-icons-animation">
-                                            {% if plug[state] %}
+                                    <button type="button" class="btn btn-primary btn-switch" id="{{plug['myid']}}" plugactive="{{plug['state'] | tojson}}" onClick="switchOnOff(this)">
+                                        <i class="material-icons md-32 material-icons-animation bright">
                                             wb_sunny
-                                            {% else %}
+                                        </i>
+                                        <i class="material-icons md-32 material-icons-animation dark">
                                             brightness_3
-                                            {% endif %}
                                         </i>
                                     </button>
                                 </td>
