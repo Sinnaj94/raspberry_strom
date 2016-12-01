@@ -63,11 +63,15 @@ function executePythonFunction(myid) {
         success: function(response){
             //console.log(response);
             currentElement.disabled = false;
-            currentElement.setAttribute('plugactive',JSON.parse(response)['state']);
-            $(currentElement).find('i').animate({
-                opacity: 1,
-                top: '0px'
-            },'fast');
+            var newState = JSON.parse(response)['state'];
+            $(currentElement).find('i').animate(
+            { opacity: 1, top: '0px'},{
+                duration: 'fast',
+                start:function(){
+                    //TODO: DISABLE MULTIPLE ASSIGNMENTS
+                    currentElement.setAttribute('plugactive',newState)
+                }
+            });
         },
         error: function(error) {
         }

@@ -16,7 +16,7 @@
         }, 
         {
             "myid": 101104, 
-            "state": false, 
+            "state": true, 
             "name": "Lampe", 
             "key": 10110, 
             "id": 4
