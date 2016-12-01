@@ -13,10 +13,11 @@ def main():
 @app.route('/foo', methods=['GET','POST'])
 def foo(x=None, y=None):
     myid = int(request.json['myid'])
-    #TODO: rework
-    #subprocess.Popen("python steckdose.py "+ str(a) + " " + str(b), shell=True)
     _state = helpertools.changeState(myid)
-    return json.dumps({'state':_state})
+    _subprocess = helpertools.getSteckdoseFormatted(myid)
+    #subprocess.Popen(_subprocess, shell=True)
+    
+    return json.dumps({'state':_state, 'subprocess':_subprocess})
     pass
 
 if __name__ == "__main__":

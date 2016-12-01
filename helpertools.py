@@ -27,3 +27,17 @@ def changeState(myid):
 	print _return
 	return _return
 
+def getSteckdoseFormatted(myid):
+	_return = "python steckdose.py "
+	with open(inputfile) as f:
+		data = json.load(f)
+		for plug in data['plugs']:
+			if(plug['myid'] == myid):
+				_return += str(plug['id'])
+				_return += " "
+				if(plug['state']):
+					_return += "1"
+				else:
+					_return += "0"
+				return _return
+	return None

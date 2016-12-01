@@ -50,9 +50,9 @@ function executePythonFunction(myid) {
     var currentElement = document.getElementById(myid);
     $(currentElement).find('i').animate({
         opacity: 0,
-        top:'9px'
-    },100,function(){
-        $(this).css('top','-9px');
+        top:'20px'
+    },'fast',function(){
+        $(this).css('top','-20px');
     });
     currentElement.disabled = true;
     $.ajax({
@@ -61,12 +61,13 @@ function executePythonFunction(myid) {
         contentType: 'application/json;charset=UTF-8',
         type: 'POST',
         success: function(response){
+            //console.log(response);
             currentElement.disabled = false;
             currentElement.setAttribute('plugactive',JSON.parse(response)['state']);
             $(currentElement).find('i').animate({
                 opacity: 1,
                 top: '0px'
-            },100)
+            },'fast');
         },
         error: function(error) {
         }
