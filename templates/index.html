@@ -70,31 +70,21 @@
                 <p class="description-text">Remote Control</p>
             </h3>
             <div class="page-container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="item-tab">ID</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="insert_here">
-                        {% for plug in plugs %}
-                            <tr>
-                                <td class="align-middle-table">{{ plug['name'] }}</td>
-                                <td class="align-middle-table">
-                                    <button type="button" class="btn btn-primary btn-switch" id="{{plug['myid']}}" plugactive="{{plug['state'] | tojson}}" onClick="switchOnOff(this)">
-                                        <i class="material-icons md-32 material-icons-animation bright">
-                                            wb_sunny
-                                        </i>
-                                        <i class="material-icons md-32 material-icons-animation dark">
-                                            brightness_3
-                                        </i>
-                                    </button>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <ul class="plug-list">
+                    {% for plug in plugs %}
+                        <li class="plug-list-item">
+                            <div class="plug-list-item-text">{{ plug['name'] }}</div>
+                            <button type="button" class="btn btn-primary btn-switch" id="{{plug['myid']}}" plugactive="{{plug['state'] | tojson}}">
+                                <i class="material-icons md-32 material-icons-animation bright">
+                                    wb_sunny
+                                </i>
+                                <i class="material-icons md-32 material-icons-animation dark">
+                                    brightness_3
+                                </i>
+                            </button>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
         <div class="page" id="led_page">

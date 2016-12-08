@@ -2,6 +2,9 @@ var device_list = [];
 
 //On Document Load
 $(document).ready(function () {
+    $(document).on('click', '.plug-list-item', function (e) {
+        switchOnOff(jQuery(this).find('button')[0]);
+    });
     //Helper functions
     $(document).on('click', '.my-navbar li', function (e) {
         $(this).addClass('active').siblings().removeClass('active');
@@ -38,6 +41,7 @@ function switchAirplay() {
 }
 //Decides & Switches the current state
 function switchOnOff(e) {
+    console.log(e)
     var currentState = e.getAttribute('plugactive');
     var myid = e.id;
     executePythonFunction(myid);
