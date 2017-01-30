@@ -4,9 +4,9 @@ var argv   = require('minimist')(process.argv);
 var gulpif = require('gulp-if');
 var prompt = require('gulp-prompt');
 var rsync  = require('gulp-rsync');
-
+var watch = require('gulp-watch');
 gulp.task('deploy', function() {
-  rsyncPaths = ['templates','static', './*.py', './*.json', './*.wsgi'];
+  rsyncPaths = ['source'];
 
   // Default options for rsync
   rsyncConf = {
@@ -60,3 +60,8 @@ function throwError(taskName, msg) {
       message: msg
     });
 }
+
+gulp.task('watch', function () {
+    // Endless stream mode 
+    gulp.watch('source/*', console.log("Going to deploy now."));
+});

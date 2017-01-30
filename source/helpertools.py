@@ -1,7 +1,6 @@
 import json
 import os
 inputfile = 'conf.json'
-
 def getPlugs():
 	_return = []
 	with open(inputfile) as f:
