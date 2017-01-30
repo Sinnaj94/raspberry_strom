@@ -1,0 +1,23 @@
+{
+  "name": "raspberry_strom",
+  "version": "1.0.0",
+  "description": "A Raspberry Smart Home Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/jjahr/raspberry_strom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/jjahr/raspberry_strom#readme",
+  "devDependencies": {
+    "gulp-if": "^2.0.2",
+    "gulp-prompt": "^0.2.0",
+    "gulp-rsync": "0.0.7",
+    "gulp-util": "^3.0.8",
+    "minimist": "^1.2.0"
+  }
+}

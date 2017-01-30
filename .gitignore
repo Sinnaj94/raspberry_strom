@@ -119,4 +119,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# node
+node_modules/
+
 # End of https://www.gitignore.io/api/python,macos
