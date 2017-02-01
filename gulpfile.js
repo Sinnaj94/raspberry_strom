@@ -22,7 +22,7 @@ gulp.task('deploy', function() {
   // Staging
   if (argv.staging) {
     
-    rsyncConf.hostname = 'raspberrypi'; // hostname
+    rsyncConf.hostname = '192.168.178.60'; // hostname
     rsyncConf.username = 'pi'; // ssh username
     rsyncConf.destination = '~/dist/'; // path where uploaded files go
     

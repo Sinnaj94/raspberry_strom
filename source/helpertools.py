@@ -38,5 +38,7 @@ def getSteckdoseFormatted(myid):
 					_return += "1"
 				else:
 					_return += "0"
+				_return += " "
+				_return += str(plug['key'])
 				return _return
 	return None

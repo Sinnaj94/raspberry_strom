@@ -82,15 +82,19 @@ if __name__ == '__main__':
 	import sys
 	GPIO.setwarnings(False)
 	
-	if len(sys.argv) < 3:
-		print("usage:sudo python %s int_device int_state (e.g. '%s 2 1' switches device 2 on)" % \
+	if len(sys.argv) < 4:
+		print("usage:sudo python %s int_device int_state int_key (e.g. '%s 2 1 01010' switches device 2 with key 01010 on)" % \
 			(sys.argv[0], sys.argv[0]))  
 		sys.exit(1)
 	
 	
 	# Change the key[] variable below according to the dipswitches on your Elro receivers.
-	default_key = [0,1,0,1,1] 
-	
+	#default_key = [0,1,0,1,1] 
+	default_key_S = list(sys.argv[3])
+	default_key = []
+	for x in default_key_S:
+		_value = int(x)
+		default_key.append(_value)
 	# change the pin accpording to your wiring
 	default_pin =7
 	device = RemoteSwitch(  device= int(sys.argv[1]), 
