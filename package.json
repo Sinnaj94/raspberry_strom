@@ -4,7 +4,7 @@
   "description": "A Raspberry Smart Home Client",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
     "gulp-rsync": "0.0.7",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "webpack": "^2.2.1"
   }
 }
