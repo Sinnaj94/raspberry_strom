@@ -3,14 +3,14 @@ import subprocess
 import helpertools
 import json
 from flask import render_template
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/")
+@application.route("/")
 def main():
     _plugs = helpertools.getPlugs()
     return render_template('index.html',plugs = _plugs)
 
-@app.route('/foo', methods=['GET','POST'])
+@application.route('/foo', methods=['GET','POST'])
 def foo(x=None, y=None):
     myid = int(request.json['myid'])
     _state = helpertools.changeState(myid)
@@ -21,4 +21,4 @@ def foo(x=None, y=None):
     pass
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True)
+    application.run(host='0.0.0.0', port=80, debug=True)
