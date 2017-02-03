@@ -48,9 +48,11 @@ def getSteckdoseFormatted(myid):
 	return None
 
 # REST API FUNCTIONS
+# get all the plugs in a json format
 def apiAllPlugs():
 	return json.dumps({'plugs': getPlugs()});
 
+# get a plug with a key. example: apiPlugByKey(11111) returns all plugins with key 11111
 def apiPlugByKey(key):
 	plugs = getPlugs();
 	foundPlug = [plug for plug in plugs if plug['key'] == key];
@@ -64,9 +66,11 @@ def apiError():
 	return json.dumps({"error" : {"status": 404, "message" : "Not found"}})
 
 def apiChangeState(id):
-	# has to be 'PUT'
+	
+	if id.isdigit() == False:
+		return json.dumps({"error": {"message": "Not a number"}})
 	newState = None
 	newState = changeState(int(id))
 	if newState is None:
 		return apiError()
-	return json.dumps({'current_state': newState})
+	return json.dumps({'new_state': newState})

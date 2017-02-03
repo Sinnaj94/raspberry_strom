@@ -22,6 +22,10 @@ def foo(x=None, y=None):
     pass
 
 # REST API ---------
+@application.errorhandler(404)
+def not_found(error):
+    return helpertools.apiError()
+    
 @application.route(apiPath,methods=['GET'])
 def api():
 	return "Rest Api"

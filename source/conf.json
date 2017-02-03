@@ -2,7 +2,7 @@
     "plugs": [
         {
             "myid": 1, 
-            "state": true, 
+            "state": false, 
             "name": "PC", 
             "key": "01011", 
             "id": 1
@@ -16,7 +16,7 @@
         }, 
         {
             "myid": 3, 
-            "state": false, 
+            "state": true, 
             "name": "Lampe", 
             "key": "01011", 
             "id": 4
@@ -30,7 +30,7 @@
         }, 
         {
             "myid": 5, 
-            "state": false, 
+            "state": true, 
             "name": "Hannah 2", 
             "key": "11111", 
             "id": 2
