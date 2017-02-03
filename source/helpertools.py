@@ -1,6 +1,7 @@
 import json
 import os
 inputfile = 'conf.json'
+
 def getPlugs():
 	_return = []
 	with open(inputfile) as f:
@@ -9,6 +10,7 @@ def getPlugs():
 			_return.append(plug)
 	return _return
 
+# change a state of a fix id
 def changeState(myid):
 	_return = None
 	with open(inputfile) as f:
@@ -26,6 +28,8 @@ def changeState(myid):
 	print _return
 	return _return
 
+
+# function for calling a python function
 def getSteckdoseFormatted(myid):
 	_return = "python steckdose.py "
 	with open(inputfile) as f:
@@ -42,3 +46,27 @@ def getSteckdoseFormatted(myid):
 				_return += str(plug['key'])
 				return _return
 	return None
+
+# REST API FUNCTIONS
+def apiAllPlugs():
+	return json.dumps({'plugs': getPlugs()});
+
+def apiPlugByKey(key):
+	plugs = getPlugs();
+	foundPlug = [plug for plug in plugs if plug['key'] == key];
+	if not foundPlug:
+		return apiError();
+	_returnPlug = json.dumps({'plugs': [plug for plug in plugs if plug['key'] == key]})
+	return _returnPlug
+
+def apiError():
+	#overthink
+	return json.dumps({"error" : {"status": 404, "message" : "Not found"}})
+
+def apiChangeState(id):
+	# has to be 'PUT'
+	newState = None
+	newState = changeState(int(id))
+	if newState is None:
+		return apiError()
+	return json.dumps({'current_state': newState})
