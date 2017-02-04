@@ -6,7 +6,7 @@ var prompt = require('gulp-prompt');
 var rsync  = require('gulp-rsync');
 var watch = require('gulp-watch');
 gulp.task('deploy', function() {
-  rsyncPaths = ['dist'];
+  rsyncPaths = ['application'];
 
   // Default options for rsync
   rsyncConf = {
