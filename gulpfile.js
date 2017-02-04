@@ -6,7 +6,7 @@ var prompt = require('gulp-prompt');
 var rsync  = require('gulp-rsync');
 var watch = require('gulp-watch');
 gulp.task('deploy', function() {
-  rsyncPaths = ['source'];
+  rsyncPaths = ['dist'];
 
   // Default options for rsync
   rsyncConf = {
@@ -24,7 +24,7 @@ gulp.task('deploy', function() {
     
     rsyncConf.hostname = '192.168.178.60'; // hostname
     rsyncConf.username = 'pi'; // ssh username
-    rsyncConf.destination = '~/dist/'; // path where uploaded files go
+    rsyncConf.destination = '~/'; // path where uploaded files go
     
   // Production
   } else if (argv.production) {

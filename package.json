@@ -4,7 +4,7 @@
   "description": "A Raspberry Smart Home Client",
   "main": "index.js",
   "scripts": {
-    "deploy": "gulp deploy --staging"
+    "deploy": "bower install && gulp deploy --staging"
   },
   "repository": {
     "type": "git",
@@ -14,6 +14,7 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/jjahr/raspberry_strom#readme",
   "devDependencies": {
+    "bower": "^1.8.0",
     "gulp-if": "^2.0.2",
     "gulp-prompt": "^0.2.0",
     "gulp-rsync": "0.0.7",

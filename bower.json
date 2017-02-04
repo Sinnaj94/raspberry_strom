@@ -1,0 +1,13 @@
+{
+  "name": "raspberry_strom",
+  "description": "A Raspberry Smart Home Client - Bower file just f",
+  "authors": [
+    "Jannis Jahr"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Sinnaj94/raspberry_strom",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
