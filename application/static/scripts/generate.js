@@ -60,14 +60,15 @@ function executePythonFunction(myid) {
     });
     currentElement.disabled = true;
     $.ajax({
-        url: '/foo',
+        url: '/switch',
         data: JSON.stringify(myjson),
         contentType: 'application/json;charset=UTF-8',
         type: 'POST',
         success: function(response){
             //console.log(response);
             currentElement.disabled = false;
-            var newState = JSON.parse(response)['state'];
+            var newState = JSON.parse(response)['info']['new_state'];
+            console.log(newState)
             $(currentElement).find('i').animate(
             { opacity: 1, top: '0px'},{
                 duration: 'fast',

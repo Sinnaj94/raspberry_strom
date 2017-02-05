@@ -4,6 +4,8 @@
   "description": "A Raspberry Smart Home Client",
   "main": "index.js",
   "scripts": {
+    "install" : "bower install",
+    "start": "cd application && sudo python app.py",
     "deploy": "bower install && gulp deploy --staging"
   },
   "repository": {

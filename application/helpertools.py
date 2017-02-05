@@ -1,7 +1,7 @@
 import json
 import os
 import subprocess
-inputfile = 'conf.json'
+inputfile = './conf.json'
 
 # HARDWARE CHANGES
 
@@ -30,7 +30,6 @@ def changeState(myid):
 
 	with open(inputfile, 'w') as f:
 		json.dump(data, f, indent=4)
-	print _return
 	return _return
 
 
@@ -63,7 +62,7 @@ def apiPlugByKey(key):
 	foundPlug = [plug for plug in plugs if plug['key'] == key];
 	if not foundPlug:
 		return apiError();
-	_returnPlug = json.dumps({'plugs': [plug for plug in plugs if plug['key'] == key]})
+	_returnPlug = json.dumps({'info':{'plugs': [plug for plug in plugs if plug['key'] == key]}})
 	return _returnPlug
 
 def apiError():
@@ -71,11 +70,13 @@ def apiError():
 	return json.dumps({"error" : {"status": 404, "message" : "Not found"}})
 
 def apiChangeState(id):
-	
 	if id.isdigit() == False:
 		return json.dumps({"error": {"message": "Not a number"}})
-	newState = None
-	newState = changeState(int(id))
-	if newState is None:
+	myid = int(id)
+	_state = None
+	_state = changeState(int(id))
+	if _state is None:
 		return apiError()
-	return json.dumps({'new_state': newState})
+	_subprocess = getSteckdoseFormatted(myid)
+	#success function with a callback function for terminal
+	return json.dumps({'info': {'new_state' : _state},'callback' : _subprocess})

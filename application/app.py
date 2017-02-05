@@ -11,14 +11,11 @@ def main():
     _plugs = helpertools.getPlugs()
     return render_template('index.html',plugs = _plugs)
 
-@application.route('/foo', methods=['GET','POST'])
-def foo(x=None, y=None):
-    myid = int(request.json['myid'])
-    _state = helpertools.changeState(myid)
-    _subprocess = helpertools.getSteckdoseFormatted(myid)
-    subprocess.Popen(_subprocess, shell=True)
-    
-    return json.dumps({'state':_state, 'subprocess':_subprocess})
+@application.route('/switch', methods=['GET','POST'])
+def switch(x=None, y=None):
+    myid = request.json['myid']
+    _return = changeState(myid)
+    return _return
     pass
 
 # REST API ---------
@@ -38,17 +35,25 @@ def returnAll():
 def returnOne(key):
 	return helpertools.apiPlugByKey(key)
 
-#TODO: Merge with other functions, because same capability.
 @application.route('%s/switch/<string:id>'%apiPath, methods=['GET'])
-def changeSwitch(id):
-    myid = int(id)
-    _state = helpertools.changeState(myid)
-    _subprocess = helpertools.getSteckdoseFormatted(myid)
-    subprocess.Popen(_subprocess, shell=True)
-    
-    return json.dumps({'state':_state, 'subprocess':_subprocess})
-	#return helpertools.apiChangeState(id)
+def returnSwitch(id):
+    return changeState(id)
+
+def changeState(id):
+    _return = helpertools.apiChangeState(id)
+    runFunction(_return)
+    return _return
+
 
 # REST API END -----
+# SWITCH FUNCTIONS
+def runFunction(myobject):
+    _dict = json.loads(myobject)
+    #check if it has an error
+    if not 'callback' in _dict:
+        return None
+    _subprocess = _dict["callback"]
+    subprocess.Popen(_subprocess, shell=True)
+
 if __name__ == "__main__":
     application.run(host='0.0.0.0', port=80, debug=True)
