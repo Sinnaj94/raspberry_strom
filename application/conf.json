@@ -2,14 +2,14 @@
     "plugs": [
         {
             "myid": 1, 
-            "state": false, 
+            "state": true, 
             "name": "PC", 
             "key": "01011", 
             "id": 1
         }, 
         {
             "myid": 2, 
-            "state": false, 
+            "state": true, 
             "name": "TV", 
             "key": "01011", 
             "id": 2
@@ -23,24 +23,24 @@
         }, 
         {
             "myid": 4, 
-            "state": false, 
+            "state": true, 
             "name": "Hannah 1", 
             "key": "11111", 
             "id": 1
         }, 
         {
             "myid": 5, 
-            "state": true, 
+            "state": false, 
             "name": "Hannah 2", 
             "key": "11111", 
             "id": 2
         }, 
         {
             "myid": 6, 
-            "state": false, 
+            "state": true, 
             "name": "Hannah 3", 
             "key": "11111", 
-            "id": 2
+            "id": 4
         }
     ]
 }

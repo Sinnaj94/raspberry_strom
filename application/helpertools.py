@@ -16,15 +16,19 @@ def getPlugs():
 	return _return
 
 # change a state of a fix id
-def changeState(myid):
+def changeState(myid, new_state):
 	_return = None
 	with open(inputfile) as f:
 		data = json.load(f)
 		newPlugs = []
 		for plug in data['plugs']:
 			if(plug['myid'] == myid):
-				plug['state'] = not plug['state']
-				_return = plug['state']
+				if new_state is None:
+					plug['state'] = not plug['state']
+					_return = plug['state']
+				else:
+					plug['state'] = new_state
+					_return = new_state
 			newPlugs.append(plug)
 		data['plugs'] = newPlugs
 
@@ -42,10 +46,12 @@ def getSteckdoseFormatted(myid):
 			if(plug['myid'] == myid):
 				_return += str(plug['id'])
 				_return += " "
-				if(plug['state']):
+				_my_new_state = plug['state']
+				if(_my_new_state):
 					_return += "1"
 				else:
 					_return += "0"
+
 				_return += " "
 				_return += str(plug['key'])
 				return _return
@@ -60,21 +66,21 @@ def apiAllPlugs():
 def apiPlugByKey(key):
 	plugs = getPlugs();
 	foundPlug = [plug for plug in plugs if plug['key'] == key];
-	if not foundPlug:
-		return apiError();
 	_returnPlug = json.dumps({'info':{'plugs': [plug for plug in plugs if plug['key'] == key]}})
 	return _returnPlug
 
+# standard api error - at the moment 404 error
 def apiError():
-	#overthink
+	#todo: overthink
 	return json.dumps({"error" : {"status": 404, "message" : "Not found"}})
 
-def apiChangeState(id):
+# change a lamp state to and an id an optional new_state
+def apiChangeState(id, new_state):
 	if id.isdigit() == False:
 		return json.dumps({"error": {"message": "Not a number"}})
 	myid = int(id)
 	_state = None
-	_state = changeState(int(id))
+	_state = changeState(int(id),new_state)
 	if _state is None:
 		return apiError()
 	_subprocess = getSteckdoseFormatted(myid)

@@ -218,3 +218,7 @@ td
 .btn-switch[plugactive = "true"] > i.dark{
     display: none;
 }
+
+.plug-list-item:hover {
+    background: #eeeeee;
+}
