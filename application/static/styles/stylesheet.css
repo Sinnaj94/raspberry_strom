@@ -219,6 +219,25 @@ td
     display: none;
 }
 
-.plug-list-item:hover {
+.plug-list-item:active {
     background: #eeeeee;
+}
+
+.btn-settings {
+    background: none!important;
+    border: none!important;
+    text-shadow: none!important;
+    box-shadow: none!important;
+}
+
+.btn-settings:focus {
+    outline: none!important;
+}
+
+.btn-remove {
+    color: red!important;
+}
+
+.btn-add {
+    color: green!important;
 }

@@ -194,7 +194,22 @@
                 <p class="description-text">Settings</p>
             </h3>
             <div class="page-container">
-                Hier kommen später noch ein paar settings rein.
+                <ul class="plug-list">
+                    <li class="plug-list-item">
+                        <h4>Steckdosenkonfiguration</h4>
+                    </li>
+                {% for plug in settingsplugs %}
+                    <li class="plug-list-item">
+                        <div class="plug-list-item-text">{{plug['name']}} | {{plug['key']}} | {{plug['id']}}</div>
+                        <button type="button" class="btn btn-primary btn-switch btn-settings btn-remove" id="{{plug['myid']}}"><i class="material-icons md-32">remove_circle</i></button>
+                    </li>
+                {% endfor %}
+                    <li class="plug-list-item">
+                        <div class="plug-list-item-text">Steckdose hinzufügen</div>
+                        <button type="button" class="btn btn-primary btn-switch btn-settings btn-add"><i class="material-icons md-32">add_circle</i></button>
+
+                    </li>
+                </ul>
             </div>
         </div>
 

@@ -20,16 +20,17 @@ onRaspberry = checkGPIO()
 
 @application.route("/")
 def main():
-    myPlugs = helpertools.apiAllPlugs()
-    _plugs = json.loads(myPlugs)['plugs']
-    return render_template('index.html',plugs = [])
+    mySettingsPlugs = helpertools.apiAllPlugs()
+    _settingsplugs = json.loads(mySettingsPlugs)['plugs']
+    return render_template('index.html',plugs = _settingsplugs, settingsplugs = _settingsplugs)
 
 @application.route("/custom/<string:key>")
 def custom(key):
     myPlugs = helpertools.apiPlugByKey(key)
     _plugs = json.loads(myPlugs)['info']['plugs']
-
-    return render_template('index.html',plugs = _plugs)
+    mySettingsPlugs = helpertools.apiAllPlugs()
+    _settingsplugs = json.loads(mySettingsPlugs)['plugs']
+    return render_template('index.html',plugs = _plugs, settingsplugs = _settingsplugs)
 
 @application.route('/switch', methods=['GET','POST'])
 def switch():
@@ -89,8 +90,6 @@ def defineNewState(new_state):
     elif new_state == 1:
         return True
     return None
-
-
 
 def runFunction(myobject):
     _dict = json.loads(myobject)
